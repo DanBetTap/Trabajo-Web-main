@@ -121,3 +121,26 @@ img {
     width: 200px;
     margin: 10px;
 }
+
+.container-fluid{
+    background-color: salmon;
+    height: auto;
+    width: 400px;;
+}
+
+.container-fluid h3{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.form-floating{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+    margin: 10px;
+    margin-left: 10px;
+}

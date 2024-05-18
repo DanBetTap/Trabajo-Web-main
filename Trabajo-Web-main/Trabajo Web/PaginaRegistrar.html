@@ -23,24 +23,24 @@
                 <form action="" id="formulario" method="POST" class="col-6 mx-auto shadow-lg mt-3 text-center">
                     <h3>Registro</h3>
                     <div class="form-floating w-50 mx-auto mb-3">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre">
                         <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre">
                     </div>
                     <div class="form-floating w-50 mx-auto mb-3">
-                        <input type="text" class="form-control" name="rut" id="rut" placeholder="Ingrese su RUT">
                         <label for="rut">Rut:</label>
+                        <input type="text" class="form-control" name="rut" id="rut" placeholder="Ingrese su RUT">
                     </div>
-                    <div class="form-floating w-50 mx-auto mb-3">
-                        <input type="date" class="form-control" name="cumpleaños" id="cumpleaños">
+                    <div class="form-floating w-50 mx-auto mb-4">
                         <label for="cumpleaños">Fecha Nacimiento:</label>
+                        <input type="date" class="form-control" name="cumpleaños" id="cumpleaños">
                     </div>
                     <div class="form-floating w-50 mx-auto mb-3">
-                        <input type="text" class="form-control" name="correo" id="correo" placeholder="Correo">
                         <label for="correo">Correo:</label>
+                        <input type="text" class="form-control" name="correo" id="correo" placeholder="Correo">
                     </div>
                     <div class="form-floating w-50 mx-auto mb-3">
-                        <input type="text" class="form-control" name="pass" id="pass" placeholder="Contraseña">
                         <label for="pass">Contraseña:</label>
+                        <input type="text" class="form-control" name="pass" id="pass" placeholder="Contraseña">
                     </div>
                     <div class="form-floating w-50 mx-auto mb-3">
                         <button type="button" class="btn btn-outline-successs" id="btnRegistrar">Registrar</button>
@@ -65,11 +65,14 @@
         let pass = $("#pass");
 
         $("#btnRegistrar").click(function(){
+            var email = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
             if(nombre.val().trim() === "" || rut.val().trim() === "" || cumpleaño.val().trim() === "" || correo.val().trim() === "" || pass.val().trim() === "") {
                 alert("No pueden haber campos en blanco.");
-            } else if (rut.val().length > 9) { 
+            } else if (rut.val().length > 9 || rut.val().length < 8 ) { 
                 rut.css("border","3px solid red");
-                alert('El RUT no puede tener más de 9 dígitos.');
+                alert('El RUT no puede tener más de 9 dígitos o menos de 8 digitos.');
+            } else if (correo.val()=="" || !email.test(correo.val())) {
+                alert("El correo debe tener @")
             } else {
                 console.log("Nombre:", nombre.val());
                 console.log("RUT:", rut.val());

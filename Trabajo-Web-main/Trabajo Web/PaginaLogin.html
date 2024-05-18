@@ -33,6 +33,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="../js/func.js"></script>
     <script>
+        $(document).ready(function(){
+                $("#loginButton").click(function(){
+                    let usuario = $("#usuario").val();
+                    let contraseña = $("#contraseña").val();
+                    
+                    let usuarioCorrecto = "usuario";
+                    let correoCorrecto = "correo@example.com";
+                    let contraseñaCorrecta = "password123";
+                    
+                    if ((usuario === usuarioCorrecto || usuario === correoCorrecto) && contraseña === contraseñaCorrecta) {
+                        $("#resultado").html("<div class='alert alert-success w-50 mx-auto text-center'>Acceso Concedido - ¡Bienvenido!</div>");
+                    } else {
+                        $("#resultado").html("<div class='alert alert-danger w-50 mx-auto text-center'>Usuario o contraseña incorrectos</div>");
+                    }
+                });
+            });
     </script>
 </body>
 </html>
