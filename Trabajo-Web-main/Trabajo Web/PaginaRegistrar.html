@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./CSS/Style.css">
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="PaginaInicio.html">Inicio</a>
+            <a href="PaginaConocenos.html">Conocenos</a>
+            <a href="PaginaBuffet.html">Buffet</a>
+            <a href="PaginaReserva.html">Reserva</a>
+            <a id="registrar" href="PaginaCuenta.html">Cuenta</a>
+        </h1>
+    </header>
+    <main>  
+        <div class="container-fluid">
+            <div class="row">
+                <form action="" id="formulario" method="POST" class="col-6 mx-auto shadow-lg mt-3 text-center">
+                    <h3>Registro</h3>
+                    <div class="form-floating w-50 mx-auto mb-3">
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre">
+                        <label for="nombre">Nombre:</label>
+                    </div>
+                    <div class="form-floating w-50 mx-auto mb-3">
+                        <input type="text" class="form-control" name="rut" id="rut" placeholder="Ingrese su RUT">
+                        <label for="rut">Rut:</label>
+                    </div>
+                    <div class="form-floating w-50 mx-auto mb-3">
+                        <input type="date" class="form-control" name="cumpleaños" id="cumpleaños">
+                        <label for="cumpleaños">Fecha Nacimiento:</label>
+                    </div>
+                    <div class="form-floating w-50 mx-auto mb-3">
+                        <input type="text" class="form-control" name="correo" id="correo" placeholder="Correo">
+                        <label for="correo">Correo:</label>
+                    </div>
+                    <div class="form-floating w-50 mx-auto mb-3">
+                        <input type="text" class="form-control" name="pass" id="pass" placeholder="Contraseña">
+                        <label for="pass">Contraseña:</label>
+                    </div>
+                    <div class="form-floating w-50 mx-auto mb-3">
+                        <button type="button" class="btn btn-outline-successs" id="btnRegistrar">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas nulla mollitia, quod adipisci laudantium, beatae tempore dolor cumque expedita maxime amet totam commodi iure, libero itaque eius corrupti? Voluptas, dolorem!
+        </p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../js/func.js"></script>
+    <script>
+    $(document).ready(function(){
+        let nombre = $("#nombre");
+        let rut = $("#rut");
+        let cumpleaño = $("#cumpleaños");
+        let correo = $("#correo");
+        let pass = $("#pass");
+
+        $("#btnRegistrar").click(function(){
+            if(nombre.val().trim() === "" || rut.val().trim() === "" || cumpleaño.val().trim() === "" || correo.val().trim() === "" || pass.val().trim() === "") {
+                alert("No pueden haber campos en blanco.");
+            } else if (rut.val().length > 9) { 
+                rut.css("border","3px solid red");
+                alert('El RUT no puede tener más de 9 dígitos.');
+            } else {
+                console.log("Nombre:", nombre.val());
+                console.log("RUT:", rut.val());
+                console.log("Fecha de Nacimiento:", cumpleaño.val());
+                console.log("Correo:", correo.val());
+                console.log("Contraseña:", pass.val());
+            }
+        });
+    });
+    </script>
+</body>
+<script src="js/bootstrap.bundle.min.js"></script>
+</html>
